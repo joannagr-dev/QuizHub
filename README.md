@@ -1,10 +1,74 @@
 # QuizHub
 
+![Java](https://img.shields.io/badge/Java-17-orange)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.5-success)
+![Maven](https://img.shields.io/badge/Maven-3-blue)
+![License](https://img.shields.io/badge/License-Educational-lightgrey)
+
 QuizHub es una aplicación web desarrollada con **Spring Boot** que permite crear, consultar y realizar tests online de forma sencilla.
 
 El proyecto ha sido desarrollado como parte del **Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)** con el objetivo de poner en práctica el desarrollo de aplicaciones web utilizando Spring Boot, Spring MVC, Spring Security, Spring Data JPA y Thymeleaf.
 
 La aplicación permite gestionar tests mediante una interfaz web, realizar cuestionarios y acceder a una API REST para consultar la información de los tests.
+
+## Índice
+
+- Capturas
+- Características
+- Tecnologías utilizadas
+- Arquitectura
+- Estructura del proyecto
+- Objetivos del proyecto
+- Instalación
+- Usuarios de prueba
+- Base de datos
+- API REST
+- Mejoras futuras
+- Autor
+
+# 📸 Capturas
+
+## Página principal
+
+![Inicio](docs/images/index.png)
+
+---
+
+## Listado de tests
+
+![Listado](docs/images/lista.png)
+
+---
+
+## Crear un nuevo test
+
+![Nuevo](docs/images/nuevo.png)
+
+---
+
+## Editar un test
+
+![Editar](docs/images/editar.png)
+
+---
+
+## Realizar un test
+
+![Realizar](docs/images/realizar.png)
+
+---
+
+## Resultado correcto
+
+![Resultado correcto](docs/images/resultado-correcto.png)
+
+---
+
+## Resultado incorrecto
+
+![Resultado incorrecto](docs/images/resultado-incorrecto.png)
+
+---
 
 ## Características
 
@@ -20,18 +84,18 @@ La aplicación permite gestionar tests mediante una interfaz web, realizar cuest
 
 ## Tecnologías utilizadas
 
-| Tecnología | Descripción |
-|------------|-------------|
-| Java 17 | Lenguaje principal |
-| Spring Boot | Framework de desarrollo |
-| Spring MVC | Arquitectura web MVC |
+| Tecnología      | Descripción |
+|-----------------|-------------|
+| Java SE 17      | Lenguaje principal |
+| Spring Boot     | Framework de desarrollo |
+| Spring MVC      | Arquitectura web MVC |
 | Spring Security | Autenticación y autorización |
 | Spring Data JPA | Persistencia de datos |
-| Thymeleaf | Motor de plantillas |
-| H2 Database | Base de datos embebida |
-| Maven | Gestión de dependencias |
-| Bootstrap 5 | Diseño responsive |
-| IntelliJ IDEA | Entorno de desarrollo |
+| Thymeleaf       | Motor de plantillas |
+| H2 Database     | Base de datos embebida |
+| Maven           | Gestión de dependencias |
+| Bootstrap 5.3   | Diseño responsive |
+| IntelliJ IDEA   | Entorno de desarrollo |
 
 ## Arquitectura
 
@@ -164,35 +228,6 @@ La aplicación expone una pequeña API REST para gestionar los tests.
 | PUT | `/api/tests/{id}` | Actualizar un test existente |
 | DELETE | `/api/tests/{id}` | Eliminar un test |
 
-## Capturas de pantalla
-
-### Página principal
-
-*(captura pendiente)*
-
----
-
-### Listado de tests
-
-*(captura pendiente)*
-
----
-
-### Crear nuevo test
-
-*(captura pendiente)*
-
----
-
-### Realizar test
-
-*(captura pendiente)*
-
----
-
-### Resultado
-
-*(captura pendiente)*
 
 ## Mejoras futuras
 
@@ -210,4 +245,6 @@ Algunas mejoras que podrían incorporarse en futuras versiones del proyecto:
 
 **Joanna García Ruiz**
 
-Proyecto desarrollado como parte del CFGS de Desarrollo de Aplicaciones Multiplataforma (DAM).
+Estudiante del CFGS de Desarrollo de Aplicaciones Multiplataforma (DAM).
+
+Este proyecto ha sido desarrollado con fines formativos para practicar el desarrollo de aplicaciones web utilizando Spring Boot, Spring Security y Thymeleaf.

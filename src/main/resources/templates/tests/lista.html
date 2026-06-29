@@ -16,19 +16,19 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- CSS propio -->
-    <link rel="stylesheet"
-          th:href="@{/css/style.css}">
-
+    <!-- CSS -->
+    <link
+            rel="stylesheet"
+            th:href="@{/css/style.css}">
 </head>
 
 <body>
 
 <div class="container py-4">
 
-    <!-- ==================== -->
+    <!-- ========================= -->
     <!-- CABECERA -->
-    <!-- ==================== -->
+    <!-- ========================= -->
 
     <div class="d-flex justify-content-between align-items-center mb-4">
 
@@ -39,7 +39,7 @@
             </h1>
 
             <p class="text-muted mb-0">
-                Explora todos los cuestionarios disponibles.
+                Consulta, busca y realiza los tests disponibles.
             </p>
 
         </div>
@@ -56,6 +56,7 @@
             </a>
 
             <!-- Usuario no autenticado -->
+
             <div sec:authorize="!isAuthenticated()">
 
                 <a href="/login"
@@ -70,8 +71,10 @@
             </div>
 
             <!-- Usuario autenticado -->
-            <div sec:authorize="isAuthenticated()"
-                 class="d-flex align-items-center">
+
+            <div
+                    sec:authorize="isAuthenticated()"
+                    class="d-flex align-items-center">
 
                 <span class="me-3">
 
@@ -81,11 +84,13 @@
 
                 </span>
 
-                <form th:action="@{/logout}"
-                      method="post"
-                      class="d-inline">
+                <form
+                        th:action="@{/logout}"
+                        method="post"
+                        class="d-inline">
 
-                    <button type="submit"
+                    <button
+                            type="submit"
                             class="btn btn-outline-danger">
 
                         <i class="bi bi-box-arrow-right me-2"></i>
@@ -102,79 +107,75 @@
 
     </div>
 
-    <!-- ==================== -->
+    <!-- ========================= -->
     <!-- BUSCADOR -->
-    <!-- ==================== -->
+    <!-- ========================= -->
 
     <div class="card main-card mb-4">
 
         <div class="card-body">
 
-            <form action="/tests/buscar"
-                  method="get"
-                  class="row g-3 align-items-center">
+            <div class="row g-3 align-items-end">
 
                 <div class="col-md-9">
 
-                    <div class="input-group">
+                    <form
+                            action="/tests/buscar"
+                            method="get">
 
-                        <span class="input-group-text">
+                        <div class="input-group">
 
-                            <i class="bi bi-search"></i>
+                            <span class="input-group-text">
 
-                        </span>
+                                <i class="bi bi-search"></i>
 
-                        <input
-                                type="text"
-                                name="titulo"
-                                class="form-control"
-                                placeholder="Buscar un test por título...">
+                            </span>
 
-                    </div>
+                            <input
+                                    type="text"
+                                    name="titulo"
+                                    class="form-control"
+                                    placeholder="Buscar un test por título...">
+
+                            <button
+                                    type="submit"
+                                    class="btn btn-primary">
+
+                                Buscar
+
+                            </button>
+
+                        </div>
+
+                    </form>
 
                 </div>
 
-                <div class="col-md-3 d-grid">
+                <div
+                        class="col-md-3 text-md-end"
+                        sec:authorize="isAuthenticated()">
 
-                    <button
-                            type="submit"
-                            class="btn btn-primary">
+                    <a
+                            href="/tests/nuevo"
+                            class="btn btn-success">
 
-                        <i class="bi bi-search me-2"></i>
+                        <i class="bi bi-plus-circle me-2"></i>
 
-                        Buscar
+                        Nuevo test
 
-                    </button>
+                    </a>
 
                 </div>
 
-            </form>
+            </div>
 
         </div>
 
     </div>
 
-    <!-- ==================== -->
-    <!-- NUEVO TEST -->
-    <!-- ==================== -->
-
-    <div class="mb-4"
-         sec:authorize="isAuthenticated()">
-
-        <a href="/tests/nuevo"
-           class="btn btn-success">
-
-            <i class="bi bi-plus-circle me-2"></i>
-
-            Nuevo test
-
-        </a>
-
-    </div>
-
-    <!-- ==================== -->
+    <!-- ========================= -->
     <!-- SIN TESTS -->
-    <!-- ==================== -->
+    <!-- ========================= -->
 
     <div th:if="${tests.isEmpty()}">
 
@@ -185,12 +186,14 @@
                 <i class="bi bi-inbox display-3 text-secondary"></i>
 
                 <h3 class="mt-3">
+
                     Todavía no hay tests
+
                 </h3>
 
                 <p class="text-muted">
 
-                    Crea el primer cuestionario para comenzar.
+                    Crea el primero para comenzar.
 
                 </p>
 
@@ -200,17 +203,21 @@
 
     </div>
 
-    <!-- ==================== -->
+    <!-- ========================= -->
     <!-- LISTADO -->
-    <!-- ==================== -->
+    <!-- ========================= -->
 
     <div th:each="test : ${tests}">
 
-        <div class="card main-card mb-4">
+        <div class="card main-card test-card mb-4">
 
             <div class="card-body">
 
-                <h3 class="mb-3">
+                <span class="badge bg-primary mb-3">
+                    TEST
+                </span>
+
+                <h3 class="test-title">
 
                     <i class="bi bi-journal-text text-primary me-2"></i>
 
@@ -219,21 +226,25 @@
                 </h3>
 
                 <p
-                        class="mb-3"
-                        th:text="${test.descripcion}">
+                        class="test-description">
+
+                    <i class="bi bi-card-text me-2 text-secondary"></i>
+
+                    <span th:text="${test.descripcion}"></span>
+
                 </p>
 
-                <p class="text-muted mb-4">
+                <p class="test-author">
 
-                    <i class="bi bi-person-fill me-2"></i>
+                    <i class="bi bi-person-circle me-2"></i>
 
                     <strong th:text="${test.autor}"></strong>
 
                 </p>
 
-                <div class="d-flex flex-wrap gap-2">
+                <div class="d-flex flex-wrap gap-2 test-actions">
 
-                    <!-- Realizar -->
+                    <!-- REALIZAR -->
 
                     <a
                             class="btn btn-success"
@@ -246,7 +257,7 @@
 
                     </a>
 
-                    <!-- Editar -->
+                    <!-- EDITAR -->
 
                     <a
                             sec:authorize="isAuthenticated()"
@@ -261,7 +272,7 @@
 
                     </a>
 
-                    <!-- Eliminar -->
+                    <!-- ELIMINAR -->
 
                     <a
                             sec:authorize="hasRole('ADMIN')"
@@ -286,9 +297,9 @@
 
     </div>
 
-    <!-- ==================== -->
+    <!-- ========================= -->
     <!-- FOOTER -->
-    <!-- ==================== -->
+    <!-- ========================= -->
 
     <footer class="text-center mt-4 mb-3">
 
@@ -303,4 +314,5 @@
 </div>
 
 </body>
+
 </html>
