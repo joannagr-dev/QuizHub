@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo Test</title>
+
+    <!-- Bootstrap -->
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-7">
+
+            <div class="card shadow border-0">
+
+                <div class="card-body p-5">
+
+                    <!-- TITULO -->
+                    <h1 class="text-center mb-4">
+                        Crear Nuevo Test
+                    </h1>
+
+                    <p class="text-center text-muted mb-4">
+                        Completa la información para crear
+                        un nuevo test online.
+                    </p>
+
+                    <!-- FORMULARIO -->
+                    <form th:action="@{/tests/guardar}"
+                          th:object="${test}"
+                          method="post">
+
+                        <!-- TITULO -->
+                        <div class="mb-4">
+
+                            <label class="form-label">
+                                Título
+                            </label>
+
+                            <input type="text"
+                                   th:field="*{titulo}"
+                                   class="form-control"
+                                   placeholder="Ejemplo: Test de Java">
+
+                            <div class="text-danger mt-1"
+                                 th:if="${#fields.hasErrors('titulo')}"
+                                 th:errors="*{titulo}">
+                            </div>
+
+                        </div>
+
+                        <!-- DESCRIPCION -->
+                        <div class="mb-4">
+
+                            <label class="form-label">
+                                Descripción
+                            </label>
+
+                            <textarea th:field="*{descripcion}"
+                                      class="form-control"
+                                      rows="3"
+                                      placeholder="Describe brevemente el test">
+                            </textarea>
+
+                            <div class="text-danger mt-1"
+                                 th:if="${#fields.hasErrors('descripcion')}"
+                                 th:errors="*{descripcion}">
+                            </div>
+
+                        </div>
+
+                        <!-- AUTOR -->
+                        <div class="mb-4">
+
+                            <label class="form-label">
+                                Autor
+                            </label>
+
+                            <input type="text"
+                                   th:field="*{autor}"
+                                   class="form-control"
+                                   placeholder="Nombre del autor">
+
+                            <div class="text-danger mt-1"
+                                 th:if="${#fields.hasErrors('autor')}"
+                                 th:errors="*{autor}">
+                            </div>
+
+                        </div>
+
+                        <!-- PREGUNTA -->
+                        <div class="mb-4">
+
+                            <label class="form-label">
+                                Pregunta
+                            </label>
+
+                            <textarea th:field="*{pregunta}"
+                                      class="form-control"
+                                      rows="3"
+                                      placeholder="Escribe la pregunta del test">
+                            </textarea>
+
+                            <div class="text-danger mt-1"
+                                 th:if="${#fields.hasErrors('pregunta')}"
+                                 th:errors="*{pregunta}">
+                            </div>
+
+                        </div>
+
+                        <!-- RESPUESTA -->
+                        <div class="mb-4">
+
+                            <label class="form-label">
+                                Respuesta correcta
+                            </label>
+
+                            <input type="text"
+                                   th:field="*{respuestaCorrecta}"
+                                   class="form-control"
+                                   placeholder="Escribe la respuesta correcta">
+
+                            <div class="text-danger mt-1"
+                                 th:if="${#fields.hasErrors('respuestaCorrecta')}"
+                                 th:errors="*{respuestaCorrecta}">
+                            </div>
+
+                        </div>
+
+                        <!-- BOTONES -->
+                        <div class="d-flex justify-content-between">
+
+                            <a href="/tests"
+                               class="btn btn-secondary">
+                                Volver
+                            </a>
+
+                            <button type="submit"
+                                    class="btn btn-success">
+                                Guardar Test
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
