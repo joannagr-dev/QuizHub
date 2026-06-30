@@ -1,4 +1,6 @@
-# QuizHub
+<p align="center">
+    <img src="docs/images/banner.png" alt="QuizHub Banner">
+</p>
 
 ![Java](https://img.shields.io/badge/Java-17-orange)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.5-success)
