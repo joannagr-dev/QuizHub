@@ -96,6 +96,10 @@ public class SecurityConfig {
 
                         .requestMatchers(
                                 "/",
+                                "/css/**",
+                                "/js/**",
+                                "/images/**",
+                                "/webjars/**",
                                 "/tests",
                                 "/tests/buscar",
                                 "/tests/realizar/**",
@@ -124,6 +128,8 @@ public class SecurityConfig {
                 // ====================
 
                 .formLogin(form -> form
+
+                        .loginPage("/login")
 
                         .defaultSuccessUrl("/tests", true)
 
