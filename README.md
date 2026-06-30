@@ -2,6 +2,8 @@
     <img src="docs/images/banner.png" alt="QuizHub Banner">
 </p>
 
+# QuizHub
+
 ![Java](https://img.shields.io/badge/Java-17-orange)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.5-success)
 ![Maven](https://img.shields.io/badge/Maven-3-blue)
@@ -33,6 +35,12 @@ La aplicación permite gestionar tests mediante una interfaz web, realizar cuest
 ## Página principal
 
 ![Inicio](docs/images/index.png)
+
+---
+
+## Inicio de sesión
+
+![Login](docs/images/login.png)
 
 ---
 
@@ -83,21 +91,22 @@ La aplicación permite gestionar tests mediante una interfaz web, realizar cuest
 - Autenticación y autorización mediante Spring Security.
 - API REST para consultar y gestionar los tests.
 - Persistencia de datos mediante Spring Data JPA y H2 Database.
+- Página de inicio de sesión personalizada integrada con Spring Security.
 
 ## Tecnologías utilizadas
 
-| Tecnología      | Descripción |
-|-----------------|-------------|
-| Java SE 17      | Lenguaje principal |
-| Spring Boot     | Framework de desarrollo |
-| Spring MVC      | Arquitectura web MVC |
+| Tecnología   | Descripción |
+|--------------|-------------|
+| Java 17      | Lenguaje principal |
+| Spring Boot  | Framework de desarrollo |
+| Spring MVC   | Arquitectura web MVC |
 | Spring Security | Autenticación y autorización |
 | Spring Data JPA | Persistencia de datos |
-| Thymeleaf       | Motor de plantillas |
-| H2 Database     | Base de datos embebida |
-| Maven           | Gestión de dependencias |
-| Bootstrap 5.3   | Diseño responsive |
-| IntelliJ IDEA   | Entorno de desarrollo |
+| Thymeleaf    | Motor de plantillas |
+| H2 Database  | Base de datos embebida |
+| Maven        | Gestión de dependencias |
+| Bootstrap 5.3 | Diseño responsive |
+| IntelliJ IDEA | Entorno de desarrollo |
 
 ## Arquitectura
 
@@ -106,7 +115,7 @@ QuizHub sigue una **arquitectura en capas** basada en el patrón **MVC (Model-Vi
 - **Model**: representa la entidad `Test` y sus validaciones.
 - **Repository**: acceso a la base de datos mediante Spring Data JPA.
 - **Service**: contiene la lógica de negocio de la aplicación.
-- **Controller**: gestiona las peticiones web y la API REST.
+- **Controller**: incluye controladores MVC para la interfaz web, un controlador REST para la API y controladores específicos para el inicio, el login y las páginas de error.
 - **View**: interfaces desarrolladas con Thymeleaf y Bootstrap.
 
 Esta separación facilita el mantenimiento del código y hace que la aplicación sea más escalable.
@@ -121,18 +130,47 @@ src
 │   │       └── joannagr
 │   │           └── quizhub
 │   │               ├── controller
+│   │               │   ├── ErrorController.java
+│   │               │   ├── HomeController.java
+│   │               │   ├── LoginController.java
+│   │               │   ├── TestController.java
+│   │               │   └── TestRestController.java
+│   │               │
 │   │               ├── model
+│   │               │   └── Test.java
+│   │               │
 │   │               ├── repository
+│   │               │   └── TestRepository.java
+│   │               │
 │   │               ├── security
+│   │               │   └── SecurityConfig.java
+│   │               │
 │   │               ├── service
+│   │               │   ├── TestService.java
+│   │               │   └── TestServiceImpl.java
+│   │               │
 │   │               └── QuizHubApplication.java
 │   │
 │   └── resources
+│       ├── static
+│       │   └── css
+│       │       └── style.css
+│       │
 │       ├── templates
 │       │   ├── error
+│       │   │   ├── 403.html
+│       │   │   └── 404.html
+│       │   │
 │       │   ├── tests
-│       │   └── index.html
-│       ├── static
+│       │   │   ├── editar-test.html
+│       │   │   ├── lista-tests.html
+│       │   │   ├── nuevo-test.html
+│       │   │   ├── realizar-test.html
+│       │   │   └── resultado-test.html
+│       │   │
+│       │   ├── index.html
+│       │   └── login.html
+│       │
 │       └── application.properties
 │
 └── pom.xml
@@ -155,9 +193,9 @@ Este proyecto ha sido desarrollado con el objetivo de consolidar conocimientos s
 
 Antes de ejecutar la aplicación es necesario disponer de:
 
-- Java 17
-- Maven
-- IntelliJ IDEA (o cualquier IDE compatible con Maven)
+- Java 17 o superior
+- Maven 3.9+
+- IntelliJ IDEA (recomendado)
 
 ### Clonar el repositorio
 
@@ -242,6 +280,8 @@ Algunas mejoras que podrían incorporarse en futuras versiones del proyecto:
 - Categorías de tests.
 - Temporizador durante la realización del test.
 - Estadísticas de resultados.
+- Contenerización mediante Docker.
+- Soporte para bases de datos MySQL o PostgreSQL.
 
 ## Autor
 
