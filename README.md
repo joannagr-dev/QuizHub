@@ -147,7 +147,6 @@ src
 │   │               │
 │   │               ├── service
 │   │               │   ├── TestService.java
-│   │               │   └── TestServiceImpl.java
 │   │               │
 │   │               └── QuizHubApplication.java
 │   │
@@ -162,11 +161,11 @@ src
 │       │   │   └── 404.html
 │       │   │
 │       │   ├── tests
-│       │   │   ├── editar-test.html
-│       │   │   ├── lista-tests.html
-│       │   │   ├── nuevo-test.html
-│       │   │   ├── realizar-test.html
-│       │   │   └── resultado-test.html
+│       │   │   ├── editar.html
+│       │   │   ├── lista.html
+│       │   │   ├── nuevo.html
+│       │   │   ├── realizar.html
+│       │   │   └── resultado.html
 │       │   │
 │       │   ├── index.html
 │       │   └── login.html
