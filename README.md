@@ -26,7 +26,7 @@ La aplicación permite gestionar tests mediante una interfaz web, realizar cuest
 - Mejoras futuras
 - Autor
 
-# 📸 Capturas
+# Capturas
 
 ## Página principal
 
